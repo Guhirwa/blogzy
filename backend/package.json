@@ -1,0 +1,22 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "package folder for backend part",
+  "main": "app.js",
+  "scripts": {
+    "test": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/Guhirwa/blogzy.git"
+  },
+  "author": "Guhirwa",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Guhirwa/blogzy/issues"
+  },
+  "homepage": "https://github.com/Guhirwa/blogzy#readme",
+  "dependencies": {
+    "mongoose": "^9.0.0"
+  }
+}
