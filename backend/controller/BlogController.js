@@ -93,3 +93,11 @@ const deleteBlog = async (req, res) => {
         res.status(500).json({success: false, message: 'Server Error'});
     }
 }
+
+module.exports = {
+    getAllBlogs,
+    getBlogById,
+    saveBlog,
+    updateBlog,
+    deleteBlog
+}
