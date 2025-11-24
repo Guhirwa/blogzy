@@ -4,6 +4,7 @@ const connectDB = require('./config/db');
 const morgan = require('morgan');
 const cors = require('cors');
 const helmet = require('helmet');
+const blogRoutes = require('./routes/blogRoutes');
 
 const app = express();
 
@@ -19,4 +20,6 @@ connectDB()
 app.use(helmet());
 app.use(cors());
 app.use(morgan('dev'));
+
+app.use('/blogs', blogRoutes);
 
