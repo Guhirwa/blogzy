@@ -47,9 +47,22 @@ const updateBlog = async (req, res) => {
 
     try {
         const blog = await Blog.findById(req.params.id);
+
         if(!blog) {
-            res
+            res.status(404).json({success: false, message: `Blog with id of ${req.params.id} not found`});
         }
+        const {title, body, author, published, imageUrl} = req.body;
+
+        blog.title = title || blog.title;
+        blog.body = body || blog.body;
+        blog.author = author || blog.author;
+        if(published !== undefined) blog.published = published;
+        blog.imageUrl = imageUrl || blog.imageUrl;
+        
+        await blog.save()
+
+        res.status(200).json({success: true, message: 'Blog updated successfully'});
+
     } catch (err) {
         console.log(err);
         res.status(500).json({success: false, message: 'Server Error'});
